@@ -1,0 +1,18 @@
+.search-bar {
+  display: flex;
+  width: 65%;
+  align-items: center;
+  justify-content: start;
+}
+.search-bar i {
+  margin-left: 1%;
+  font-size: 150%;
+}
+.search-bar input {
+  padding: 0.5% 1%;
+  height: 35%;
+  width: 40%;
+  border: 0;
+  border-radius: 4%;
+  background-color: #F3F3F3;
+}

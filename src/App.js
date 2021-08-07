@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import react from "react";
+import "./App.css";
+import Nav from "./components/Nav/Nav";
+import Posts from "./components/Posts/Posts";
+import Subreddits from "./components/Subreddits/Subreddits";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav />
+      <div className='reddit-body'>
+        <Posts />
+        <Subreddits />
+      </div>
     </div>
   );
 }
