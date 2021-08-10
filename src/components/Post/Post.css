@@ -1,0 +1,46 @@
+.post {
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+    margin: 2% 2%;
+    display: flex;
+    padding: 1%;
+}
+.thumbs {
+    padding: 1%;
+}
+
+
+.thumbs i {
+    font-size: 120%;
+    cursor: pointer;
+}
+.thumbs i, .thumbs p{
+    margin: 12% 0;
+}
+
+.content {
+    width: 100%;
+    
+}
+.content p, .content h3 {
+    margin: 1% 0;
+}
+ul {
+    padding: 0;
+}
+img {
+    border-radius: 5%;
+    width: 100%;
+}
+video {
+    width: 100%;
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+.footer p {
+    width: 5%;
+}
+.footer p i{
+    margin-right: 7%;
+}
