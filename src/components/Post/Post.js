@@ -60,15 +60,15 @@ export default function Post({ data }) {
           <p>{data.subreddit_name_prefixed}</p>
           <h3>{data.title}</h3>
           {data.is_video && (
-            <video controls>
+            <div className='media'><video controls>
               <source
                 src={data.media.reddit_video.fallback_url}
                 type="video/mp4"
               />
-            </video>
+            </video></div>
           )}
           {data.is_reddit_media_domain && !data.is_video && (
-            <img src={data.url_overridden_by_dest} alt={data.title} />
+            <div className='media'><img src={data.url_overridden_by_dest} alt={data.title} /></div>
           )}
         </div>
         <div className="footer">
