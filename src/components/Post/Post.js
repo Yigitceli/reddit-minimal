@@ -72,7 +72,7 @@ export default function Post({ data }) {
           )}
         </div>
         <div className="footer">
-          <p>{data.author_fullname}</p>
+          <p>{data.author}</p>
 
           <p onClick={() => setCommentsActive(!commentsAcitve)}>
             <i className="far fa-comment"></i>
