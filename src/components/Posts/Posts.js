@@ -8,34 +8,40 @@ import "./Posts.css";
 
 const override = css`
   display: block;
-  
+
   border-color: red;
 `;
 
 export default function Posts() {
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const { isLoading, data, url } = useSelector((state) => state.redditData);
-  
 
   const fetchdata = async () => {
-    dispatch(toggleLoading())
-    const res = await fetch(`https://www.reddit.com/r/${url}.json`);
-    const json = await res.json();    
-    dispatch(toggleLoading())
-    dispatch(setData(json.data.children));
+    try {
+      setError(false);
+      dispatch(toggleLoading());
+      const res = await fetch(`https://www.reddit.com/r/${url}.json`);
+      const json = await res.json();
+      dispatch(toggleLoading());
+      dispatch(setData(json.data.children));      
+    } catch {
+      setError(true);      
+    }
   };
   useEffect(() => {
     fetchdata();
-    
   }, [url]);
 
   return (
     <div className="posts">
-      {!isLoading ? (
+      {!isLoading ? (error.isError ? <h2>Failed to load subreddit.</h2> : (
         <ul>
-          {data.map(item => {return <Post key={item.data.id} data={item.data}/>})}
+          {data.map((item) => {
+            return <Post key={item.data.id} data={item.data} />;
+          })}
         </ul>
-      ) : (
+      )) : (
         <div className="loader">
           <GridLoader loading={isLoading} css={override} speedMultiplier="2" />
         </div>

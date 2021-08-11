@@ -5,13 +5,19 @@ import "./SearchBar.css";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const handleChange = (e) => {
+    
     setSearchValue(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setUrl(searchValue));
+    if(searchValue === ''){
+      dispatch(setUrl('popular'));          
+    }else {
+      dispatch(setUrl(searchValue));
+    }
+    
   };
   return (
     <form onSubmit={handleSubmit} className="search-bar">
