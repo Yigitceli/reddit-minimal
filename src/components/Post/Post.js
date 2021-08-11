@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faThumbsUp as farThumbsUp,
+  faThumbsDown as farThumbsDown,
+} from "@fortawesome/free-regular-svg-icons";
+import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import "./Post.css";
 
 function kFormatter(num) {
@@ -8,24 +14,45 @@ function kFormatter(num) {
 }
 
 export default function Post({ data }) {
+  const [click, setClick] = useState(false);
+  const [click2, setClick2] = useState(false);
   const [hover, setHover] = useState(false);
   const [hover2, setHover2] = useState(false);
 
   return (
     <div className="post">
       <div className="thumbs">
-        <i
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-          className={!hover ? "far fa-thumbs-up" : "fas fa-thumbs-up"}
-        ></i>
-
+        <FontAwesomeIcon
+          classname="i"
+          onClick={() => {
+            setClick(true);
+            setClick2(false);
+          }}
+          onMouseEnter={() => {
+            setHover(true);
+          }}
+          onMouseLeave={() => {
+            setHover(false);
+          }}
+          icon={click || hover ? faThumbsUp : farThumbsUp}
+          style={{ cursor: "pointer", fontSize: "1.2em" }}
+        />
         <p>{kFormatter(data.ups)}</p>
-        <i
-          onMouseEnter={() => setHover2(true)}
-          onMouseLeave={() => setHover2(false)}          
-          className={!hover2 ? "far fa-thumbs-down" : "fas fa-thumbs-down"}
-        ></i>
+        <FontAwesomeIcon
+          classname="i"
+          onClick={() => {
+            setClick(false);
+            setClick2(true);
+          }}
+          onMouseEnter={() => {
+            setHover2(true);
+          }}
+          onMouseLeave={() => {
+            setHover2(false);
+          }}
+          icon={click2 || hover2 ? faThumbsDown : farThumbsDown}
+          style={{ cursor: "pointer", fontSize: "1.2em" }}
+        />
       </div>
       <div className="content">
         <div>
@@ -33,7 +60,6 @@ export default function Post({ data }) {
           <h3>{data.title}</h3>
           {data.is_video && (
             <video controls>
-              {" "}
               <source
                 src={data.media.reddit_video.fallback_url}
                 type="video/mp4"

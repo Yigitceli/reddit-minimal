@@ -1,13 +1,15 @@
-.posts {
-    
-    
+.posts {   
     border-radius: 0.5%;
     width: 73%;
+    
     height: 100%;
     
 }
 .loader {
-    display: flex;
-    height: 100%;
+    min-height: 1000px;
     
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      
 }

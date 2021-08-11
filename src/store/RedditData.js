@@ -4,7 +4,9 @@ export const DataSlice = createSlice({
     name: 'redditData',
     initialState:{
         data: [],
-        isLoading:false
+        isLoading:false,
+        subReddits: [],
+        url:'popular'
     },
     reducers: {
         toggleLoading: state => {
@@ -12,10 +14,16 @@ export const DataSlice = createSlice({
         },
         setData: (state, action) => {
             state.data = action.payload;
+        },
+        setUrl: (state, action) => {
+            state.url = action.payload;
+        },
+        setSubReddits: (state, action) => {
+            state.subReddits = action.payload;
         }
         
     }
 });
 
-export const {toggleLoading, setData} = DataSlice.actions;
+export const {toggleLoading, setData, setUrl, setSubReddits} = DataSlice.actions;
 export default DataSlice.reducer; 

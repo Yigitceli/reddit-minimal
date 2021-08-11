@@ -8,25 +8,26 @@ import "./Posts.css";
 
 const override = css`
   display: block;
-  margin: auto auto;
+  
   border-color: red;
 `;
 
 export default function Posts() {
   const dispatch = useDispatch();
-  const { isLoading, data } = useSelector((state) => state.redditData);
+  const { isLoading, data, url } = useSelector((state) => state.redditData);
+  
 
   const fetchdata = async () => {
     dispatch(toggleLoading())
-    const res = await fetch("https://www.reddit.com/r/popular.json");
-    const json = await res.json();
+    const res = await fetch(`https://www.reddit.com/r/${url}.json`);
+    const json = await res.json();    
     dispatch(toggleLoading())
     dispatch(setData(json.data.children));
   };
   useEffect(() => {
     fetchdata();
-    console.log(data);
-  }, []);
+    
+  }, [url]);
 
   return (
     <div className="posts">

@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setUrl } from "../../store/RedditData";
 import "./SearchBar.css";
 
 export default function SearchBar() {
+  const dispatch = useDispatch();
+  const [searchValue, setSearchValue] = useState("");
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(setUrl(searchValue));
+  };
   return (
-    <form className="search-bar">
-      <input type="text" placeholder="Search"></input>
-      <i className="fas fa-search"></i>
+    <form onSubmit={handleSubmit} className="search-bar">
+      <input
+        onChange={handleChange}
+        value={searchValue}
+        type="text"
+        placeholder="Subreddit Search"
+      ></input>
+      <button  className="search" type="submit">
+        <i className="fas fa-search"></i>
+      </button>
     </form>
   );
 }

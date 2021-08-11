@@ -4,8 +4,14 @@
   align-items: center;
   justify-content: start;
 }
-.search-bar i {
+.search {
   margin-left: 1%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.search-bar i {
+  
   font-size: 150%;
 }
 .search-bar input {
