@@ -14,6 +14,7 @@ function kFormatter(num) {
 }
 
 export default function Post({ data }) {
+  const [commentsAcitve, setCommentsActive] = useState(false);
   const [click, setClick] = useState(false);
   const [click2, setClick2] = useState(false);
   const [hover, setHover] = useState(false);
@@ -73,7 +74,7 @@ export default function Post({ data }) {
         <div className="footer">
           <p>{data.author_fullname}</p>
 
-          <p>
+          <p onClick={() => setCommentsActive(!commentsAcitve)}>
             <i className="far fa-comment"></i>
             {kFormatter(data.num_comments)}
           </p>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleLoading, setData } from "../../store/RedditData";
 import GridLoader from "react-spinners/GridLoader";
 import { css } from "@emotion/react";
+
 import "./Posts.css";
 
 const override = css`
@@ -22,11 +23,14 @@ export default function Posts() {
       setError(false);
       dispatch(toggleLoading());
       const res = await fetch(`https://www.reddit.com/r/${url}.json`);
+      console.log(res);
       const json = await res.json();
+      console.log(json);
       dispatch(toggleLoading());
       dispatch(setData(json.data.children));      
     } catch {
-      setError(true);      
+      setError(true);
+      dispatch(toggleLoading());      
     }
   };
   useEffect(() => {
@@ -35,7 +39,7 @@ export default function Posts() {
 
   return (
     <div className="posts">
-      {!isLoading ? (error.isError ? <h2>Failed to load subreddit.</h2> : (
+      {!isLoading ? (error ? <h2>Failed to load subreddit.</h2> : (
         <ul>
           {data.map((item) => {
             return <Post key={item.data.id} data={item.data} />;

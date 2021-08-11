@@ -13,9 +13,11 @@ export default function SearchBar() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(searchValue === ''){
-      dispatch(setUrl('popular'));          
+      dispatch(setUrl('popular'));
+      setSearchValue('');          
     }else {
       dispatch(setUrl(searchValue));
+      setSearchValue(''); 
     }
     
   };
