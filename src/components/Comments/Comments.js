@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setComments } from "../../store/RedditData";
 import Comment from "../Comment/Comment";
 import "./Comments.css";
 import GridLoader from "react-spinners/GridLoader";
@@ -19,7 +17,7 @@ export default function Comments({ data }) {
     const res = await fetch(`https://www.reddit.com${data.permalink}.json?limit=25`);
     const json = await res.json();
     console.log(json);
-    setComments(json[1].data.children.slice(0,-1))
+    setComments(json[1].data.children.filter(item => item.kind !== 'more'));
     setIsLoading(false);
     
   };
@@ -34,7 +32,7 @@ export default function Comments({ data }) {
           <GridLoader loading={isLoading} css={override} speedMultiplier="2" />
         </div>
       ) : (
-        <ul>{comments.map(item => {return <Comment data={item.data}/>})}</ul>
+        <ul>{comments.map(item => {return <Comment key={item.data.id} data={item.data}/>})}</ul>
       )}
     </div>
   );
