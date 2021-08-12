@@ -1,0 +1,27 @@
+.comment{  
+    padding: 1% 2%;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.comment:hover{
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.hr {
+    
+    width: 100%;
+    text-align: end;
+}
+.comment h4{
+    
+    color: #3D5AF1;
+    margin: 0;
+    padding:1%;
+    width: 100%;
+
+}
+.comment p {
+    
+    margin: 0;
+    width: 100%;
+}

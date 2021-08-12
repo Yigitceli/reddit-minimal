@@ -24,13 +24,14 @@ export default function Posts() {
       dispatch(toggleLoading());
       const res = await fetch(`https://www.reddit.com/r/${url}.json`);
       console.log(res);
+
       const json = await res.json();
-      console.log(json);
+
       dispatch(toggleLoading());
-      dispatch(setData(json.data.children));      
+      dispatch(setData(json.data.children));
     } catch {
       setError(true);
-      dispatch(toggleLoading());      
+      dispatch(toggleLoading());
     }
   };
   useEffect(() => {
@@ -39,13 +40,17 @@ export default function Posts() {
 
   return (
     <div className="posts">
-      {!isLoading ? (error ? <h2>Failed to load subreddit.</h2> : (
-        <ul>
-          {data.map((item) => {
-            return <Post key={item.data.id} data={item.data} />;
-          })}
-        </ul>
-      )) : (
+      {!isLoading ? (
+        error ? (
+          <h2>Failed to load subreddit.</h2>
+        ) : (
+          <ul>
+            {data.map((item) => {
+              return <Post key={item.data.id} data={item.data} />;
+            })}
+          </ul>
+        )
+      ) : (
         <div className="loader">
           <GridLoader loading={isLoading} css={override} speedMultiplier="2" />
         </div>
