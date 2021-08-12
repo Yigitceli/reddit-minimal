@@ -11,9 +11,9 @@ export default function Nav() {
   };
   return (
     <div id="header">
-      <div onClick={clickHandler} className="logo">
-        <i class="fab fa-reddit"></i>
-        <p>
+      <div className="logo">
+        <i onClick={clickHandler} class="fab fa-reddit"></i>
+        <p onClick={clickHandler}>
           <span style={{ color: "#536DF3" }}>Reddit</span>Minimal
         </p>
       </div>
