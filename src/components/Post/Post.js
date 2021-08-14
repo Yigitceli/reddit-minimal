@@ -43,7 +43,7 @@ export default function Post({ data }) {
               setHover(false);
             }}
             icon={click || hover ? faThumbsUp : farThumbsUp}
-            style={{ cursor: "pointer", fontSize: "1.2em" }}
+            style={{ cursor: "pointer", fontSize: "1.4em", marginBottom: '0.3em' }}
           />
           <p>{kFormatter(data.ups)}</p>
           <FontAwesomeIcon
@@ -59,7 +59,7 @@ export default function Post({ data }) {
               setHover2(false);
             }}
             icon={click2 || hover2 ? faThumbsDown : farThumbsDown}
-            style={{ cursor: "pointer", fontSize: "1.2em" }}
+            style={{ cursor: "pointer", fontSize: "1.4em", marginTop: '0.4em' }}
           />
         </div>
         <div className="content">
