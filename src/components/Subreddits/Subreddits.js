@@ -4,13 +4,9 @@ import Subreddit from "../Subreddit/Subreddit";
 import { setSubReddits } from "../../store/RedditData";
 import "./Subreddits.css";
 import GridLoader from "react-spinners/GridLoader";
-import { css } from "@emotion/react";
 
-const override = css`
-  display: block;
-  margin: auto auto;
-  border-color: red;
-`;
+
+
 
 export default function Subreddits() {
   const [error, setError] = useState(false);
@@ -52,7 +48,7 @@ export default function Subreddits() {
         )
       ) : (
         <div className="loader">
-          <GridLoader loading={isLoading} css={override} speedMultiplier="2" />
+          <GridLoader loading={isLoading} speedMultiplier="2" />
         </div>
       )}
     </div>
