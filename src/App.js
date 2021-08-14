@@ -1,4 +1,3 @@
-import react from "react";
 import "./App.css";
 import Nav from "./components/Nav/Nav";
 import Posts from "./components/Posts/Posts";
