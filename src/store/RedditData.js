@@ -3,16 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const DataSlice = createSlice({
     name: 'redditData',
     initialState:{
-        data: [],
-        isLoading:false,
+        data: [],        
         subReddits: [],
         url:'popular'
         
     },
-    reducers: {
-        toggleLoading: state => {
-            state.isLoading = !state.isLoading;
-        },
+    reducers: {        
         setData: (state, action) => {
             state.data = action.payload;
         },
@@ -22,14 +18,12 @@ export const DataSlice = createSlice({
         setSubReddits: (state, action) => {
             state.subReddits = action.payload;
         },
-        setLoading: (state, action) => {
-            state.isLoading = action.payload
-        }
+        
         
         
         
     }
 });
 
-export const {toggleLoading, setData, setUrl, setSubReddits, setLoading} = DataSlice.actions;
+export const {setData, setUrl, setSubReddits} = DataSlice.actions;
 export default DataSlice.reducer; 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Post from "../Post/Post";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleLoading, setData, setLoading} from "../../store/RedditData";
+import { setData} from "../../store/RedditData";
 import GridLoader from "react-spinners/GridLoader";
 import "./Posts.css";
 
@@ -11,22 +11,24 @@ import "./Posts.css";
 
 export default function Posts() {
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const { isLoading, data, url } = useSelector((state) => state.redditData);
+  const { data, url } = useSelector((state) => state.redditData);
 
   const fetchdata = async () => {
     try {
       setError(false);
-      dispatch(toggleLoading());      
+      setIsLoading(true);     
       const res = await fetch(`https://www.reddit.com/r/${url}.json`);   
       const json = await res.json();      
-      dispatch(toggleLoading());      
+      setIsLoading(false);     
       dispatch(setData(json.data.children));
     } catch {
       setError(true);      
-      dispatch(setLoading(false));
+      setIsLoading(false);
     }
   };
+  
   useEffect(() => {
     fetchdata();
   }, [url]);

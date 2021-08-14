@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faThumbsUp as farThumbsUp,
@@ -6,8 +6,6 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import "./Post.css";
-import { useDispatch } from "react-redux";
-import {} from "../../store/RedditData";
 import Comments from "../Comments/Comments";
 
 function kFormatter(num) {
@@ -17,7 +15,7 @@ function kFormatter(num) {
 }
 
 export default function Post({ data }) {
-  const dispatch = useDispatch();
+  
   const [show, setShow] = useState(false);
   const [click, setClick] = useState(false);
   const [click2, setClick2] = useState(false);
