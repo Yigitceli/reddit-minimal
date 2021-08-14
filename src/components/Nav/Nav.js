@@ -14,7 +14,7 @@ export default function Nav() {
       <div className="logo">
         <i onClick={clickHandler} class="fab fa-reddit"></i>
         <p onClick={clickHandler}>
-          <span style={{ color: "#536DF3" }}>Reddit</span>Minimal
+          <span style={{ color: "#536DF3" }}>Reddit</span>Mini
         </p>
       </div>
       <SearchBar />
