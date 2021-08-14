@@ -1,5 +1,4 @@
 import react from "react";
-import { useSelector } from "react-redux";
 import "./App.css";
 import Nav from "./components/Nav/Nav";
 import Posts from "./components/Posts/Posts";

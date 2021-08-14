@@ -3,15 +3,9 @@ import Post from "../Post/Post";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleLoading, setData, setLoading} from "../../store/RedditData";
 import GridLoader from "react-spinners/GridLoader";
-import { css } from "@emotion/react";
-
 import "./Posts.css";
 
-const override = css`
-  display: block;
 
-  border-color: red;
-`;
 
 
 
@@ -51,7 +45,7 @@ export default function Posts() {
         )
       ) : (
         <div className="loader">
-          <GridLoader loading={isLoading} css={override} speedMultiplier="2" />
+          <GridLoader loading={isLoading} speedMultiplier="2" />
         </div>
       )}
     </div>

@@ -6,8 +6,7 @@ import "./SearchBar.css";
 export default function SearchBar() {
   const dispatch = useDispatch();
   const [searchValue, setSearchValue] = useState('');
-  const handleChange = (e) => {
-    
+  const handleChange = (e) => {    
     setSearchValue(e.target.value);
   };
   const handleSubmit = (e) => {
