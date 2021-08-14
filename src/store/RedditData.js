@@ -22,11 +22,14 @@ export const DataSlice = createSlice({
         setSubReddits: (state, action) => {
             state.subReddits = action.payload;
         },
+        setLoading: (state, action) => {
+            state.isLoading = action.payload
+        }
         
         
         
     }
 });
 
-export const {toggleLoading, setData, setUrl, setSubReddits} = DataSlice.actions;
+export const {toggleLoading, setData, setUrl, setSubReddits, setLoading} = DataSlice.actions;
 export default DataSlice.reducer; 
