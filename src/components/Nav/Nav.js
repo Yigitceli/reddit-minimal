@@ -2,7 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
 import { setUrl } from "../../store/RedditData";
+
 import "./Nav.css";
+
+
 
 export default function Nav() {
   const dispatch = useDispatch();

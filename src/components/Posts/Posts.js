@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Post from "../Post/Post";
 import { useDispatch, useSelector } from "react-redux";
-import { setData} from "../../store/RedditData";
+import { fetchRedditData} from "../../store/RedditData";
 import GridLoader from "react-spinners/GridLoader";
 import "./Posts.css";
 
@@ -10,33 +10,18 @@ import "./Posts.css";
 
 
 export default function Posts() {
-  const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const { data, url } = useSelector((state) => state.redditData);
-
-  const fetchdata = async () => {
-    try {
-      setError(false);
-      setIsLoading(true);     
-      const res = await fetch(`https://www.reddit.com/r/${url}.json`);   
-      const json = await res.json();      
-      setIsLoading(false);     
-      dispatch(setData(json.data.children));
-    } catch {
-      setError(true);      
-      setIsLoading(false);
-    }
-  };
+  const { data, url, loadingSection, errorSection} = useSelector((state) => state.redditData);  
+  
   
   useEffect(() => {
-    fetchdata();
+    dispatch(fetchRedditData());
   }, [url]);
 
   return (
     <div className="posts">
-      {!isLoading ? (
-        error ? (
+      {!loadingSection.isLoadingForPosts ? (
+         errorSection.isErrorForPosts ? (
           <h2>Failed to load subreddit.</h2>
         ) : (
           <ul>
@@ -47,7 +32,7 @@ export default function Posts() {
         )
       ) : (
         <div className="loader">
-          <GridLoader loading={isLoading} speedMultiplier="2" />
+          <GridLoader loading={loadingSection.isLoadingForPosts} speedMultiplier="2" />
         </div>
       )}
     </div>
