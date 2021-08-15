@@ -64,6 +64,7 @@ export const DataSlice = createSlice({
     [fetchRedditData.fulfilled]: (state, action) => {
       state.loadingSection.isLoadingForPosts = false;
       state.errorSection.isErrorForPosts = false;
+      
     },
     [fetchRedditData.rejected]: (state, action) => {
       state.loadingSection.isLoadingForPosts = false;
