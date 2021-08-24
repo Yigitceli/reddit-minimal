@@ -18,7 +18,7 @@ export const fetchRedditData = createAsyncThunk(
 
 export const fetchSubredditData = createAsyncThunk(
   "fetchSubredditData",
-  async (arg, { dispatch, getState }) => {
+  async (arg, { dispatch}) => {
     try {
       const data = await fetch("https://www.reddit.com/subreddits.json");
       const json = await data.json();      
@@ -30,7 +30,7 @@ export const fetchSubredditData = createAsyncThunk(
   }
 );
 
-export const DataSlice = createSlice({
+const DataSlice = createSlice({
   name: "redditData",
   initialState: {
     data: [],

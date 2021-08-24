@@ -16,10 +16,8 @@ export default function Comments({ data }) {
     setIsLoading(true);
     const res = await fetch(`https://www.reddit.com${data.permalink}.json?limit=25`);
     const json = await res.json();
-    console.log(json);
     setComments(json[1].data.children.filter(item => item.kind !== 'more'));
     setIsLoading(false);
-    
   };
   useEffect(() => {
       fetchComments();
