@@ -10,4 +10,7 @@
   .subreddits{
     display: none;
   }
+  .posts{
+    width: 100%;
+  }
 }
