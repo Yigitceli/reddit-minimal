@@ -32,14 +32,8 @@
 }
 
 @media only screen and (max-width: 768px) {
-  #header{
-    display: block;
-  }
-
-  .logo{
-    width: 100%;
-  }
   
+
   
   
 }
