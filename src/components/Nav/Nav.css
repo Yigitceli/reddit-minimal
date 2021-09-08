@@ -33,16 +33,13 @@
 
 @media only screen and (max-width: 768px) {
   #header{
-    display: flex;
-    justify-content: center;
-
+    display: block;
   }
+
   .logo{
     width: 100%;
-
   }
-  .search-bar{
-    width: 100%;
-  }
+  
+  
   
 }
