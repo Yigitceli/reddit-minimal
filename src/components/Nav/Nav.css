@@ -30,3 +30,19 @@
   margin-right: 2%;
   font-size: 200%;
 }
+
+@media only screen and (max-width: 768px) {
+  #header{
+    display: flex;
+    justify-content: center;
+
+  }
+  .logo{
+    width: 100%;
+
+  }
+  .search-bar{
+    width: 100%;
+  }
+  
+}
