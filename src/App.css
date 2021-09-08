@@ -10,5 +10,15 @@
   .subreddits{
     display: none;
   }
+  .reddit-body{
+    padding: 0;
+    width: 98.5%;
+    display: flex;
+    justify-content: center;
+    
+    text-align: center;
+    
+  }
+  
   
 }

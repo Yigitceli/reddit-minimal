@@ -16,7 +16,9 @@
 
 @media only screen and (max-width: 768px) {
     .posts{
-      width: 100%;
+      
+      width: 95%;
+      margin: 0;
     }
     
   }
