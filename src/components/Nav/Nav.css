@@ -35,12 +35,17 @@
   #header{
     display: block;
     text-align: center;
+    padding: 2% 0;
+
+    
   }
 
   .logo{
     width: 100%;
-    text-align: center;
+    justify-content: center;
   }
+
+  
   
   
   

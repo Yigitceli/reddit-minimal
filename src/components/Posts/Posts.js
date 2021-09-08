@@ -22,7 +22,7 @@ export default function Posts() {
     <div className="posts">
       {!loadingSection.isLoadingForPosts ? (
          errorSection.isErrorForPosts ? (
-          <h2>Failed to load subreddit.</h2>
+          <h2>Subreddit is not exist.</h2>
         ) : (
           <ul>
             {data.map((item) => {
